@@ -26,7 +26,7 @@ StepLR
     - **learning_rate** （float|int）：初始学习率，可以是Python的float或int。
     - **step_size** ：（int）：学习率衰减轮数间隔。
     - **gamma** （float）：衰减率。
-    - **last_epoch** （int）：上一轮的下标。默认为 `-1` 。
+    - **last_epoch** （int）: 上一轮的轮数，重启训练时设置为上一轮的epoch数。默认值为 -1，则为初始学习率 。
     - **verbose** （bool）：如果是 `True` ，则在每一轮更新时在标准输出 `stdout` 输出一条信息。
 
 
@@ -39,4 +39,16 @@ StepLR
 
 .. code-block:: python
 
+.. py:method:: step(epoch)
 
+通过当前的 ``step`` 函数调整学习率，调整后的学习率将会在下一个step生效。
+
+参数：
+  - **step** （float|int，可选）- 类型：int或float。当前的step数。默认：无，此时将会自动累计 ``step`` 数。
+
+返回：
+  无。
+
+**代码示例** ：
+
+  参照上述示例代码。
